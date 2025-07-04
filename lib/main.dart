@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'chat_screen.dart';
+import 'features/chat/presentation/screens/chat_screen.dart';
 
 void main() {
   runApp(const MyApp());

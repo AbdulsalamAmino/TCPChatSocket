@@ -7,6 +7,24 @@ All notable changes to the TCP ChatSocket application will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-07-05
+
+### Added
+- **Clean Architecture Implementation**: Complete project restructuring following clean architecture principles
+- **Modular Code Organization**: Separated concerns into features, services, models, and presentation layers
+- **Shared Components**: Centralized theme and constants management in shared directory
+- **Improved Import Structure**: Updated all relative imports for better maintainability
+
+### Changed
+- **Project Structure**: Reorganized codebase into feature-based architecture
+- **File Organization**: Moved all chat-related files to `features/chat/` with proper subdirectories
+- **Import Paths**: Updated all import statements to use correct relative paths
+- **Code Maintainability**: Enhanced code organization for better scalability and team collaboration
+
+### Fixed
+- **Import Resolution**: Resolved all broken imports after file reorganization
+- **Code Structure**: Ensured proper separation of concerns across all modules
+
 ## [1.0.0] - 2025-07-05
 
 ### Added
@@ -88,11 +106,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
+- **1.1.0** - Clean architecture implementation with improved code organization
 - **1.0.0** - Production-ready release with advanced features and comprehensive testing
 - **0.2.0** - Enhanced functionality with cross-platform support and improved reliability
 - **0.1.0** - Initial development version with basic TCP communication
 
 ## Migration Guide
+
+### From 1.0.0 to 1.1.0
+- **Clean Architecture**: Project structure has been completely reorganized
+- **Import Updates**: All import statements have been updated to use relative paths
+- **File Locations**: Chat-related files moved to `features/chat/` with proper subdirectories
+- **Shared Components**: Theme and constants moved to `shared/` directory
 
 ### From 0.2.0 to 1.0.0
 - **New UDP Discovery**: Servers now automatically broadcast their presence
@@ -118,6 +143,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Advanced Discovery**: mDNS/Bonjour support for enhanced server discovery
 - **Connection Metrics**: Network performance monitoring and statistics
 - **Custom Protocols**: Enhanced message framing and compression
+
+---
+
+## Project Structure Guidelines
+
+This project follows Clean Architecture principles for better scalability, readability, and team collaboration.
+
+### Directory Structure
+```
+lib/
+├── main.dart
+├── features/
+│   └── chat/
+│       ├── models/          # Data models and entities
+│       ├── services/        # Business logic and external services
+│       ├── utils/           # Helper functions and utilities
+│       └── presentation/    # UI components
+│           ├── screens/     # Full-screen UI components
+│           └── widgets/     # Reusable UI components
+└── shared/
+    ├── themes/             # App-wide theme configurations
+    └── constants/          # Application constants and configurations
+```
+
+### Organization Rules
+- **All chat-related logic** should be placed under `features/chat/`
+- **Use subfolders**: `models/`, `services/`, `utils/`, and `presentation/` (with `screens/` and `widgets/`)
+- **Shared components** such as `app_theme.dart` and `app_constants.dart` go into the `shared/` directory
+- **All imports** should use relative paths and be updated when files are moved
+- **Feature isolation**: Each feature should be self-contained with its own models, services, and UI
+- **Dependency direction**: Presentation → Services → Models (never the reverse)
+
+### Benefits
+- **Scalability**: Easy to add new features without affecting existing code
+- **Readability**: Clear separation of concerns makes code easier to understand
+- **Team Collaboration**: Standard structure that all developers can follow
+- **Maintainability**: Logical organization reduces technical debt
+- **Testability**: Isolated components are easier to unit test
 
 ---
 

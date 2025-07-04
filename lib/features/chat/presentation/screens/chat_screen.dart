@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'models/chat_message.dart';
-import 'widgets/message_bubble.dart';
-import 'socket_service.dart';
-import 'udp_discovery_service.dart';
-import 'input_validator.dart';
+import '../../models/chat_message.dart';
+import '../widgets/message_bubble.dart';
+import '../../services/socket_service.dart';
+import '../../services/udp_discovery_service.dart';
+import '../../utils/input_validator.dart';
 import 'dart:async';
 import 'dart:io';
 
